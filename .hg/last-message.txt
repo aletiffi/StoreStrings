@@ -1,0 +1,1 @@
+Corregge limite di lettura

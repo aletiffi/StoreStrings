@@ -1,0 +1,8 @@
+StoreStrings	KEYWORD1
+read	KEYWORD2
+write	KEYWORD2
+getEepromSize	KEYWORD2
+getLastReadedByte	KEYWORD2
+getLastWrittenByte	KEYWORD2
+resetReadCounter	KEYWORD2
+resetWriteCounter	KEYWORD2
