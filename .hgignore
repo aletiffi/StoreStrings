@@ -1,2 +1,5 @@
 syntax: glob
 .hgignore
+.git/
+.gitattributes
+.vscode/

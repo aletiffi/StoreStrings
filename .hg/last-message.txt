@@ -1,1 +1,1 @@
-Corregge limite di lettura
+Inserisce esempio per 2 partizini. Eseguiti test e correzioni.

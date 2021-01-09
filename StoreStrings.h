@@ -8,21 +8,45 @@ class StoreStrings
 {
   public:
     StoreStrings(int size);
-    String read(int start_addr, int end_addr);
+    StoreStrings(int partition1, int partition2);
+    String read(int start_addr);
+    String read_pt2(int start_addr);
     bool write(int start_addr, String val);
+    bool write_pt2(int start_addr, String val);
     int getEepromSize();
-    void resetReadCounter();
-    void resetWriteCounter();
+    int getFirstPartitionSize();
+    int getSecondPartitionSize();
+    bool resetReadCounter();
+    bool resetReadCounter2();
+    bool resetWriteCounter();
+    bool resetWriteCounter2();
     int getLastReadedByte();
+    int getLastReadedByte2();
     int getLastWrittenByte();
+    int getLastWrittenByte2();
+    int getStartAddr();
+    int getStartAddr2();
+    int getEndAddr();
+    int getEndAddr2();
     
   private:
-    int _ReadAddress = 0;
-    int _ReadAddressPre = 0;
-    int _WriteAddress = 0;
-    int _WriteAddressPre = 0;
+    int _ReadAddress1 = 0;
+    int _ReadAddress2 = 0;
+    int _ReadAddressPre1 = 0;
+    int _ReadAddressPre2 = 0;
+    int _WriteAddress1 = 0;
+    int _WriteAddress2 = 0;
+    int _WriteAddressPre1 = 0;
+    int _WriteAddressPre2 = 0;
     int _eepromSize = 0;
     char _null = '\0';
+    int _part1 = 0;
+    int _part2 = 0;
+    int _startAddr1 = 0;
+    int _endAddr1 = 0;
+    int _startAddr2 = 0;
+    int _endAddr2 = 0;
+    byte _minSize = 2;
 };
 
 #endif
