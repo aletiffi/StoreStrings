@@ -11,6 +11,7 @@ class StoreStrings
     StoreStrings(int partition1, int partition2);
     String read(int start_addr);
     String read_pt2(int start_addr);
+    void print_all();
     bool write(int start_addr, String val);
     bool write_pt2(int start_addr, String val);
     int getEepromSize();
@@ -28,6 +29,8 @@ class StoreStrings
     int getStartAddr2();
     int getEndAddr();
     int getEndAddr2();
+    bool clear();
+    bool isReady();
     
   private:
     int _ReadAddress1 = 0;

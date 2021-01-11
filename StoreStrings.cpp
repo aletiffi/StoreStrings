@@ -6,7 +6,7 @@ StoreStrings::StoreStrings(int partition1)
 {
   if (partition1 >= _minSize) {
     _part1 = partition1;
-    _startAddr1 = 0;
+    _startAddr1 = 1;
     _endAddr1 = partition1 - 1;
   }
   _eepromSize = _part1;
@@ -22,7 +22,7 @@ StoreStrings::StoreStrings(int partition1, int partition2)
 {
   if (partition1 >= _minSize) {
     _part1 = partition1;
-    _startAddr1 = 0;
+    _startAddr1 = 1;
     _endAddr1 = partition1 - 1;
   }
 
@@ -42,6 +42,22 @@ StoreStrings::StoreStrings(int partition1, int partition2)
     EEPROM.begin(_eepromSize);
   }
 
+}
+
+void StoreStrings::print_all()
+{
+  int k = 0;
+  for (int i = 0; i < _eepromSize; i++){
+    if (k < 10){
+      k++;
+      Serial.print((char)EEPROM.read(i));
+      Serial.print("\t");
+    } else {
+      k = 0;
+      Serial.println((char)EEPROM.read(i));
+    }
+  }
+  Serial.println("");
 }
 
 String StoreStrings::read(int read_addr)
@@ -245,3 +261,23 @@ int StoreStrings::getEndAddr2()
   return _endAddr2;
 }
 
+bool StoreStrings::clear()
+{
+  if (_eepromSize > 0){
+    for(int i = 0; i < _eepromSize; i++){
+      EEPROM.write(i, _null);
+    }
+    if (EEPROM.commit()){
+      return true;
+    }
+  }
+  return false;
+}
+
+bool StoreStrings::isReady(){
+  if (EEPROM.read(0) == _null){
+    return true;
+  } else {
+    return false;
+  }
+}

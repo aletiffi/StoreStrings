@@ -18,3 +18,6 @@ getStartAddr	KEYWORD2
 getStartAddr2	KEYWORD2
 getEndAddr	KEYWORD2
 getEndAddr2	KEYWORD2
+clear	KEYWORD2
+isReady	KEYWORD2
+print_all	KEYWORD2
